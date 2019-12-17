@@ -1,6 +1,6 @@
-# smc_flask 2019
+# smc_flask
 
-# TDS3751 SOCIAL MEDIA COMPUTING
+# TDS3751 SOCIAL MEDIA COMPUTING: Lab 04, Fall 2019
 Flask Application
 
 ### To install Flask
