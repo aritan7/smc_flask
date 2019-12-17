@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <p>Search Results: {{ tweets | length }}</p>
+    <ul>
+        {% for tweet in tweets %}
+            <li>{{ tweet }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

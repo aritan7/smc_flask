@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block script %}
+    <script>
+        $("#search_box").hide();
+
+    </script>
+    <script>
+    function generate_wordcloud(){
+        let wordcloud_type = $( "#wordcloud_type option:selected").val();
+        $.get('/wordcloud/' + wordcloud_type, function(data) {
+                $("#wordcloud_img").attr("src", "static/files/"+ data);
+            });
+
+    }
+    $(window).on('load', function() {
+        generate_wordcloud();
+    });
+    </script>
+
+{% endblock %}
+
+
+{% block body %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Word Cloud</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <select id="wordcloud_type" onchange="generate_wordcloud()" class="selectpicker">
+            <option value='freq'>Frequency</option>
+            <option value='tfidf'>Tf-Idf</option>
+        </select>
+      </div>
+    </div>
+    <img id='wordcloud_img' src='/static/files/wordcloud_placeholder.png'>
+
+  </main>
+{% endblock %}
