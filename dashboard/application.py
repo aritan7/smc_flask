@@ -18,22 +18,13 @@ def search():
     if query is None:
         return render_template('search.html')
     else:
-        tweets = search_tweets('tweets.json', query)
+        tweets = get_tweet_text_by_keyword('tweets.json', keyword=query)
         return jsonify(tweets)
 
 @app.route('/wordcloud/<type>')
 def wordcloud(type):
     if type == "freq":
         return generate_wordcloud_by_freq('tweets.json')
-        
 
 
 
-@app.route('/register', methods=['post'])
-def register():
-    name = request.form.get("name")
-    session = request.form.get("session")
-    print(name, session)
-    if not name or not session:
-        return "Failure"
-    return render_template('success.html')

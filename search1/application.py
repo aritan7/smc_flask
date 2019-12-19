@@ -11,5 +11,5 @@ def index():
 def search():
     q = request.args.get('q')
 
-    tweets = search_tweets('tweets.json', keyword=q)
+    tweets = get_tweet_text_by_keyword('tweets.json', keyword=q)
     return render_template('results.html', tweets=tweets)
