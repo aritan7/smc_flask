@@ -24,9 +24,9 @@ def get_tweet_text_by_keyword(fname, keyword):
 
     list_of_tweets = get_tweet_text(fname)
     filtered_tweets = []
-    for tweet in list_of_tweets:
-        if keyword in tweet:
-            filtered_tweets.append(tweet)
+
+    ### YOUR CODE HERE ###
+    ######################
     return filtered_tweets
 
 

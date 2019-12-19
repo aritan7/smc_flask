@@ -7,9 +7,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search():
-    q = request.form.get('q')
+    q = request.args.get('q')
     if not q:
         return render_template('failure.html', tweets='Please enter some keywords.')
     tweets = get_tweet_text_by_keyword('tweets.json', keyword=q)
