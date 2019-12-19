@@ -21,10 +21,12 @@ flask run
 ### Debug mode
 Mac / Linux:
 ```python
+export FLASK_ENV=development
 export FLASK_DEBUG=1
 ```
 
 Windows:
 ```python
+set FLASK_ENV=development
 set FLASK_DEBUG=1
 ```
